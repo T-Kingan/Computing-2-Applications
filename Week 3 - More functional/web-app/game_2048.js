@@ -1,4 +1,5 @@
 const game_2048 = Object.create(null);
+// comment update
 
 // The identity function returns whatever it is passed. i.e does nothing.
 const identity = (x) => x;
