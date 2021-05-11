@@ -37,21 +37,20 @@ Exam.merge_sentences = function (sentence_1, sentence_2) {
     if(words_1.length !== words_2.length){
         throw "ValueError";
     } else{
-        return words_1.map(x => (x.splice(1,1,)))
 
+        return words_1.map(x => {(x.splice(1,1,words_2[x]))});
+    }
 
-    }
-    const conCat = (firstSen, secondSen) => {
-        return firstSen 
-    }
+}
 
 // Write a function that returns the number of lowercase letters in
 // input string.
 //     for example:
 //          the input "sPonGe bOb"
 //          returns 6
-Exam.lowercase_count = function () {
-    return;
+Exam.lowercase_count = function (input_string) {
+    const letters = input_string.split("");
+    return letters.filter((l) => l !== l.toUpperCase()).length;
 };
 
 
@@ -59,9 +58,15 @@ Exam.lowercase_count = function () {
 
 // Write a function that returns the longest a key in the input object
 // whose keys are all strings.
-Exam.longest_key = function () {
-    return;
+Exam.longest_key = function (object) {
+    const keys = Object.keys(object);
+
+    keys.filter(key.length)// find the key with the shortest length.
+
+    console.log(Object.keys(object));
 };
+
+debugger;
 
 // Write a function that returns the largest value that is an even value in the
 // input dictionary whose values are all whole numbers.
