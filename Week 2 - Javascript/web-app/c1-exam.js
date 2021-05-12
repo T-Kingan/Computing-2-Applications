@@ -37,9 +37,10 @@ Exam.merge_sentences = function (sentence_1, sentence_2) {
     if(words_1.length !== words_2.length){
         throw "ValueError";
     } else{
-
-        return words_1.map(x => {(x.splice(1,1,words_2[x]))});
+        const new_array = words_1.map((x, i) => [x, words_2[i]]).flat();
+        return new_array;
     }
+debugger;
 
 }
 
@@ -62,6 +63,7 @@ Exam.longest_key = function (object) {
     const keys = Object.keys(object);
 
     keys.filter(key.length)// find the key with the shortest length.
+    const shortest = (a, x) => a.length >= x.length ? a : x;
 
     console.log(Object.keys(object));
 };
@@ -82,8 +84,8 @@ Exam.value_greatest_even = function () {
 //
 // The username argument should not be set to a default,
 // but the location argument should default to "London".
-Exam.greeting = function () {
-    return;
+Exam.greeting = function (username, location = "London") {
+    return `Hello, ${username}, how is ${location}?`;
 };
 
 
@@ -94,8 +96,8 @@ Exam.greeting = function () {
 //     offset with a default of 0
 // The function returns the calculation x * scalar + offset for the input x
 // if the output value of the calculation is positive, otherwise it returns 0.
-Exam.floor_line = function () {
-    return;
+Exam.floor_line = function (x, scalar = 1, offset = 0) {
+    return Math.max(0, (x * scalar + offset));
 };
 
 export default Object.freeze(Exam);
