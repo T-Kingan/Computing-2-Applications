@@ -14,6 +14,7 @@ Deck.ranks = Object.freeze(
  */
 Deck.suits = Object.freeze(
     ["♤", "♡", "♧", "♢"]
+    //🤖
 );
 
 /**
@@ -79,7 +80,20 @@ Deck.decks_equal = (deck_1, deck_2) => (
  * https://en.wikipedia.org/wiki/Faro_shuffle
  */
 Deck.faro_out_shuffle = function (deck) {
-    return deck; // Placeholder implementation.
+    const length = deck.length;
+    const midpoint = Math.round(length/2);
+    const first_half = deck.slice(0,midpoint);
+    const second_half = deck.slice(midpoint);
+    
+    let out_deck = [];
+
+    first_half.forEach((element, index) => {
+        out_deck.push(element, second_half[index]);
+    });
+
+    console.log(out_deck);
+    return out_deck;
+    
 };
 
 /**
@@ -89,7 +103,11 @@ Deck.faro_out_shuffle = function (deck) {
  * https://en.wikipedia.org/wiki/Faro_shuffle
  */
 Deck.faro_in_shuffle = function (deck) {
-    return deck; // Placeholder implementation.
+    return deck; // Placeholder implementation. 
 };
 
+
+
 export default Object.freeze(Deck);
+
+debugger;
